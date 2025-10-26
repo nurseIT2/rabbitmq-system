@@ -1,0 +1,85 @@
+═══════════════════════════════════════════════════════════════
+    ✅ НОВАЯ УПРОЩЁННАЯ СТРУКТУРА ПРОЕКТА
+═══════════════════════════════════════════════════════════════
+
+🎯 УБРАНЫ ЛИШНИЕ ПАПКИ: src/main/java/kz
+
+📁 НОВАЯ ПРОСТАЯ СТРУКТУРА:
+
+rabbitmq-system/
+├── 📄 docker-compose.yml
+├── 📄 README.md
+├── 📄 ШПАРГАЛКА.txt
+├── 📄 test-requests.http
+│
+├── 📂 order-service/
+│   ├── pom.xml
+│   └── 📂 rabbitmq/orderservice/          ← ВСЕ ФАЙЛЫ ЗДЕСЬ!
+│       ├── OrderServiceApplication.java
+│       ├── OrderController.java
+│       ├── OrderPublisher.java
+│       ├── OrderDTO.java
+│       └── application.properties
+│
+└── 📂 notification-service/
+    ├── pom.xml
+    └── 📂 rabbitmq/notificationservice/    ← ВСЕ ФАЙЛЫ ЗДЕСЬ!
+        ├── NotificationServiceApplication.java
+        ├── OrderNotificationListener.java
+        ├── OrderDTO.java
+        └── application.properties
+
+═══════════════════════════════════════════════════════════════
+
+✨ ЧТО ИЗМЕНИЛОСЬ:
+
+❌ УДАЛЕНО:
+   - Папки: src/main/java/kz/
+   - Лишняя вложенность
+
+✅ ОСТАЛОСЬ:
+   - Только: rabbitmq/orderservice/ и rabbitmq/notificationservice/
+   - Минимальная структура - легко найти файлы!
+
+═══════════════════════════════════════════════════════════════
+
+📝 ВАЖНО ДЛЯ ЗАЩИТЫ:
+
+Когда преподаватель спросит про структуру:
+  1. Открой папку order-service/rabbitmq/orderservice/
+  2. ВСЕ 5 файлов сразу видны!
+  3. Очень просто показать код
+
+═══════════════════════════════════════════════════════════════
+
+🚀 КОМАНДЫ ЗАПУСКА (НЕ ИЗМЕНИЛИСЬ):
+
+Терминал 1 - RabbitMQ:
+  docker-compose up
+
+Терминал 2 - Notification Service:
+  cd notification-service
+  mvn spring-boot:run
+
+Терминал 3 - Order Service:
+  cd order-service
+  mvn spring-boot:run
+
+Терминал 4 - Тест:
+  curl -X POST http://localhost:8080/order/almaty \
+    -H "Content-Type: application/json" \
+    -d '{"restaurant": "KFC", "courier": "Иван", "foods": ["Пицца"], "status": "Новый"}'
+
+═══════════════════════════════════════════════════════════════
+
+🎓 ПРЕИМУЩЕСТВА:
+
+✅ Простая структура - понятна с первого взгляда
+✅ Нет лишних папок src/main/java/kz
+✅ Легко открыть в IDE
+✅ Удобно показывать преподавателю
+✅ Быстро найти нужный файл
+
+═══════════════════════════════════════════════════════════════
+              ПРОЕКТ ГОТОВ К ЗАЩИТЕ! 🚀
+═══════════════════════════════════════════════════════════════

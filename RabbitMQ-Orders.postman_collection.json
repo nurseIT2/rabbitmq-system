@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "rabbitmq-orders-collection",
+		"name": "RabbitMQ Orders System",
+		"description": "Коллекция для тестирования системы заказов с RabbitMQ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Order Service",
+			"item": [
+				{
+					"name": "Создать заказ - Almaty",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"restaurant\": \"KFC Almaty\",\n    \"courier\": \"Иван Иванов\",\n    \"foods\": [\"Пицца Пепперони\", \"Кока-Кола\"],\n    \"status\": \"Новый\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/order/almaty",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"almaty"
+							]
+						},
+						"description": "Создать заказ для региона Almaty"
+					},
+					"response": []
+				},
+				{
+					"name": "Создать заказ - Astana",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"restaurant\": \"Burger King Astana\",\n    \"courier\": \"Петр Петров\",\n    \"foods\": [\"Воппер\", \"Картофель фри\"],\n    \"status\": \"Новый\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/order/astana",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"astana"
+							]
+						},
+						"description": "Создать заказ для региона Astana"
+					},
+					"response": []
+				},
+				{
+					"name": "Создать заказ - Shymkent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"restaurant\": \"Dodo Pizza Shymkent\",\n    \"courier\": \"Алекс Сидоров\",\n    \"foods\": [\"Лагман\", \"Манты\", \"Зеленый чай\"],\n    \"status\": \"Новый\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/order/shymkent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"shymkent"
+							]
+						},
+						"description": "Создать заказ для региона Shymkent (будет обработан только общим listener)"
+					},
+					"response": []
+				},
+				{
+					"name": "Создать заказ - Karaganda",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"restaurant\": \"Cafe Karaganda\",\n    \"courier\": \"Марат Каримов\",\n    \"foods\": [\"Плов\", \"Самса\", \"Компот\"],\n    \"status\": \"Готовится\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/order/karaganda",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"karaganda"
+							]
+						},
+						"description": "Создать заказ для региона Karaganda"
+					},
+					"response": []
+				},
+				{
+					"name": "Создать заказ - Aktobe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"restaurant\": \"Pizzeria Aktobe\",\n    \"courier\": \"Данияр Нурсултанов\",\n    \"foods\": [\"Пицца 4 сыра\", \"Салат Цезарь\"],\n    \"status\": \"В доставке\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/order/aktobe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"aktobe"
+							]
+						},
+						"description": "Создать заказ для региона Aktobe"
+					},
+					"response": []
+				}
+			],
+			"description": "API для создания заказов через Order Service"
+		},
+		{
+			"name": "RabbitMQ Management",
+			"item": [
+				{
+					"name": "Открыть RabbitMQ UI",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:15672",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "15672"
+						},
+						"description": "Открыть RabbitMQ Management Console (логин: guest, пароль: guest)"
+					},
+					"response": []
+				}
+			],
+			"description": "Ссылки для управления RabbitMQ"
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
