@@ -47,13 +47,10 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>rabbitmq/orderservice</sourceDirectory>
+        <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
-                <directory>rabbitmq/orderservice</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                </includes>
+                <directory>src/main/resources</directory>
             </resource>
         </resources>
         <plugins>
@@ -62,6 +59,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>kz.rabbitmq.orderservice.OrderServiceApplication</mainClass>
+                    <classifier>exec</classifier>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>

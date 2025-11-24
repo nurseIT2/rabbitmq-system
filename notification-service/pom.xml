@@ -34,6 +34,12 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
+        <!-- Dependency on order-service for OrderDTO -->
+        <dependency>
+            <groupId>kz.rabbitmq</groupId>
+            <artifactId>order-service</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!-- Lombok dependency removed -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -43,13 +49,10 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>rabbitmq</sourceDirectory>
+        <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
-                <directory>rabbitmq/notificationservice</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                </includes>
+                <directory>src/main/resources</directory>
             </resource>
         </resources>
         <plugins>
